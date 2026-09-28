@@ -33,6 +33,8 @@ sudo apt install -y mingw-w64 mingw-w64-tools
 
 
 ./github-proxy.sh
+
+
 ./build.sh
 
 
