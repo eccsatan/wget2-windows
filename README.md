@@ -15,3 +15,23 @@ Wget2 for Windows
 | nghttp2       | 1.67.1 | [https://github.com/nghttp2/nghttp2/releases/download/v1.67.1/nghttp2-1.67.1.tar.gz](https://github.com/nghttp2/nghttp2/releases/download/v1.67.1/nghttp2-1.67.1.tar.gz) |
 | dlfcn-win32   | Git    | [https://github.com/dlfcn-win32/dlfcn-win32.git](https://github.com/dlfcn-win32/dlfcn-win32.git)  |
 | libmicrohttpd | 1.0.1  | [https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-latest.tar.gz](https://ftp.gnu.org/gnu/libmicrohttpd/libmicrohttpd-latest.tar.gz)  |
+
+
+
+Ubuntu 26.04
+
+sudo apt update
+
+sudo apt install -y cmake make make-guile build-essential ninja-build bc autoconf automake libtool \
+    autopoint gettext texinfo flex bison lzip dash git-core \
+    gtk-doc-tools help2man python3 nettle-dev libp11-kit-dev libtspi-dev libunistring-dev \
+    libtasn1-bin libtasn1-6-dev libidn2-0-dev gawk gperf \
+    libtss2-dev libunbound-dev dns-root-data bison gtk-doc-tools \
+    texinfo texlive texlive-plain-generic texlive-extra-utils
+
+sudo apt install -y mingw-w64 mingw-w64-tools
+
+
+./github-proxy.sh
+./build.sh
+
