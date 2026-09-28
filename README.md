@@ -35,3 +35,7 @@ sudo apt install -y mingw-w64 mingw-w64-tools
 ./github-proxy.sh
 ./build.sh
 
+
+<img width="1716" height="924" alt="image" src="https://github.com/user-attachments/assets/1727ed36-164f-4649-97e2-c67836ad7aa0" />
+
+
