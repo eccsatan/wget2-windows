@@ -22,7 +22,7 @@ Ubuntu 26.04
 
 sudo apt update
 
-sudo apt install -y cmake make make-guile build-essential ninja-build bc autoconf automake libtool autopoint gettext texinfo flex bison lzip dash git-core
+sudo apt install -y cmake make make-guile build-essential ninja-build bc autoconf automake libtool autopoint gettext texinfo flex bison lzip dash git
 
 sudo apt install -y gtk-doc-tools help2man python3 nettle-dev libp11-kit-dev libtspi-dev libunistring-dev libtasn1-bin libtasn1-6-dev libidn2-0-dev gawk gperf
 
