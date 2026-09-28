@@ -22,12 +22,11 @@ Ubuntu 26.04
 
 sudo apt update
 
-sudo apt install -y cmake make make-guile build-essential ninja-build bc autoconf automake libtool \
-    autopoint gettext texinfo flex bison lzip dash git-core \
-    gtk-doc-tools help2man python3 nettle-dev libp11-kit-dev libtspi-dev libunistring-dev \
-    libtasn1-bin libtasn1-6-dev libidn2-0-dev gawk gperf \
-    libtss2-dev libunbound-dev dns-root-data bison gtk-doc-tools \
-    texinfo texlive texlive-plain-generic texlive-extra-utils
+sudo apt install -y cmake make make-guile build-essential ninja-build bc autoconf automake libtool autopoint gettext texinfo flex bison lzip dash git-core
+
+sudo apt install -y gtk-doc-tools help2man python3 nettle-dev libp11-kit-dev libtspi-dev libunistring-dev libtasn1-bin libtasn1-6-dev libidn2-0-dev gawk gperf
+
+sudo apt install -y libtss2-dev libunbound-dev dns-root-data bison gtk-doc-tools texinfo texlive texlive-plain-generic texlive-extra-utils
 
 sudo apt install -y mingw-w64 mingw-w64-tools
 
@@ -36,6 +35,7 @@ sudo apt install -y mingw-w64 mingw-w64-tools
 
 
 ./build.sh
+
 
 
 <img width="1716" height="924" alt="image" src="https://github.com/user-attachments/assets/1727ed36-164f-4649-97e2-c67836ad7aa0" />
