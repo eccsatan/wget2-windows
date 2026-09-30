@@ -151,6 +151,40 @@ build_xz() {
 build_zstd() {
   echo "⭐⭐⭐⭐⭐⭐$(date '+%Y/%m/%d %a %H:%M:%S.%N') - build zstd⭐⭐⭐⭐⭐⭐" 
   local start_time=$(date +%s.%N)
+  # 创建 Python 虚拟环境并安装meson
+  rm -rf /tmp/venv
+  python3 -m venv /tmp/venv
+  source /tmp/venv/bin/activate
+  pip3 install --no-cache-dir meson pytest
+
+  # 编译 zstd
+  git clone --depth=1 https://github.com/facebook/zstd.git || exit 1
+  cd zstd || exit 1
+  meson setup \
+    --cross-file=${GITHUB_WORKSPACE}/cross_file.txt \
+    --backend=ninja \
+    --prefix=$INSTALLDIR \
+    --libdir=$INSTALLDIR/lib \
+    --bindir=$INSTALLDIR/bin \
+    --pkg-config-path="$INSTALLDIR/lib/pkgconfig" \
+    -Dbin_programs=false \
+    -Dstatic_runtime=true \
+    -Ddefault_library=static \
+    -Db_lto=true --optimization=2 \
+    build/meson builddir-st || exit 1
+  rm -f /usr/local/bin/zstd*
+  rm -f /usr/local/bin/*zstd
+  meson compile -C builddir-st || exit 1
+  meson install -C builddir-st || exit 1
+  cd .. && rm -rf zstd
+  local end_time=$(date +%s.%N)
+  local duration=$(echo "$end_time - $start_time" | bc | xargs printf "%.1f")
+  echo "$duration" > "$INSTALLDIR/zstd_duration.txt"
+}
+
+build_zstd_with_no_meson() {
+  echo "⭐⭐⭐⭐⭐⭐$(date '+%Y/%m/%d %a %H:%M:%S.%N') - build zstd⭐⭐⭐⭐⭐⭐" 
+  local start_time=$(date +%s.%N)
   # 编译 zstd：官方 Makefile + mingw 交叉工具链
   # （meson 若无 cross-file 会误用原生 gcc 产出 ELF 对象，mingw 链接器无法使用，故不用 meson）
   git clone --depth=1 https://github.com/facebook/zstd.git || exit 1
@@ -500,7 +534,8 @@ build_wget2() {
 }
 
 build_brotli
-build_zstd
+#build_zstd
+build_zstd_with_no_meson
 build_zlib-ng
 build_gmp
 wait
