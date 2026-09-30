@@ -16,37 +16,50 @@
 
 # ---------- 候选代理列表（github 前缀代理） ----------
 PROXIES=(
-  "github.boki.moe"
-  "ghproxy.cxkpro.top"
-  "ghproxy.monkeyray.net"
-  "gh-proxy.org"
-  "ghfast.top"
-  "gh.monlor.com"
   "cdn.crashmc.com"
-  "gitproxy.mrhjx.cn"
-  "github.geekery.cn"
-  "ghproxy.it"
+  "cdn.gh-proxy.org"
+  "cdn.moran233.xyz"
+  "cors.isteed.cc"
+  "down.npee.cn"
+  "edgeone.gh-proxy.org"
+  "fastgit.cc"
+  "g.blfrp.cn"
+  "gh-proxy.org"
+  "gh.api.99988866.xyz"
+  "gh.catmak.name"
   "gh.chjina.com"
   "gh.ddlc.top"
   "gh.h233.eu.org"
-  "gh-proxy.org"
-  "cdn.gh-proxy.org"
-  "edgeone.gh-proxy.org"
-  "cors.isteed.cc"
+  "gh.idayer.com"
   "gh.jasonzeng.dev"
-  "github.ednovas.xyz"
+  "gh.monlor.com"
+  "gh.xxooo.cf"
+  "gh.zwy.one"
+  "ghfast.top"
   "ghfile.geekertao.top"
   "ghp.keleyaa.com"
+  "ghproxy.1888866.xyz"
+  "ghproxy.cxkpro.top"
+  "ghproxy.it"
+  "ghproxy.monkeyray.net"
+  "ghproxy.net"
   "ghpxy.hwinzniej.top"
   "git.yylx.win"
-  "gh.xxooo.cf"
-  "gh.idayer.com"
-  "down.npee.cn"
+  "gitdl.cn"
+  "github.boki.moe"
+  "github.ednovas.xyz"
+  "github.geekery.cn"
+  "github.tbedu.top"
+  "gitproxy.click"
+  "gitproxy.mrhjx.cn"
+  "hk.gh-proxy.org"
+  "hub.glowp.xyz"
+  "proxy.yaoyaoling.net"
+  "rapidgit.jjda.de5.net"
+  "raw.bgithub.xyz"
   "raw.ihtw.moe"
-  "xget.xi-xu.me"
-  "gh.zwy.one"
-  "ghproxy.net"
   "wget.la"
+  "xget.xi-xu.me"
 )
 
 # 测速仓库（中等大小，depth=1，用于区分吞吐）
@@ -151,7 +164,7 @@ case "$MODE" in
   --remove) remove_proxy; show_proxy ;;
   --show)   show_proxy ;;
   --test)   test_speed ;;
-  --set)    remove_proxy; set_proxy "$1"; show_proxy ;;
+  --set)    remove_proxy; set_proxy "$FASTEST"; show_proxy ;;
   --ensure) remove_proxy; set_proxy "$FASTEST"; show_proxy ;;
   all)
     remove_proxy
